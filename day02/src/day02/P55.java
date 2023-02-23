@@ -8,6 +8,9 @@ public class P55 {
 		long c = a ;
 		long d = b ;
 		long result = (c + d) ;
+		
 		System.out.println(result);
 	}
 }
+
+
