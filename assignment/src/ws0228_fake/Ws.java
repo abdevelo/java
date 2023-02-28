@@ -1,4 +1,4 @@
-package ws0228;
+package ws0228_fake;
 
 public class Ws {
 
