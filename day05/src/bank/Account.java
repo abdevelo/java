@@ -14,6 +14,7 @@ public class Account {
 	
 	// accNum 수집 없이 계좌 만들 때 
 	public Account(String accName, double balance) {
+		this();
 		this.accName = accName;
 		this.balance = balance;
 	}

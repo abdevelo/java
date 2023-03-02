@@ -5,6 +5,7 @@ import java.util.Calendar;
 public class MakeAccountNumber {
 	public String makeAccNum() {
 		String accNum = "";
+		Random r = r.nextIn();
 		
 		Calendar cal = Calendar.getInstance();
 		accNum = ""+cal.get(Calendar.YEAR)
