@@ -36,4 +36,5 @@ public class P69 {
 //		
 //		System.out.println("%s, %s",id,domain);
 //	} 후에 워크샵 한다고 하심 
+	}
 }

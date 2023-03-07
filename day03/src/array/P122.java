@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class P122 {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in); . 
+		Scanner sc = new Scanner(System.in);
 		while(true) {
 			System.out.println("Input Command[q,a1,a2,a3,a4]");
 			String cmd = sc.next();
