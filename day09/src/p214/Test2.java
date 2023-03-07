@@ -5,25 +5,16 @@ import java.util.Scanner;
 public class Test2 {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Input num ...");
 		int num = 0;
-		try {
+		try(Scanner sc = new Scanner(System.in)) {
+			System.out.println("Input num ...");
 			num = Integer.parseInt(sc.next());
 			int result = 10 / num;
 			System.out.println(result);
-		}catch (ArithmeticException e1) {
-			System.out.println("분모가 0입니다.");
-			return;
-		}catch (NumberFormatException e2) {
-			System.out.println("숫자를 입력하세요.");
-			return;
-		}finally {
-			System.out.println("반드시 실행 ....");
-			sc.close();			
+		}catch(Exception e) {
+			System.out.println("잘못 입력 하셨습니다.");
 		}
-
+		
 		System.out.println("End Application ...");
 		}
 }
