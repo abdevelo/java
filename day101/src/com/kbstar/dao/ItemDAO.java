@@ -8,33 +8,33 @@ import java.util.List;
 import com.kbstar.dto.ItemDTO;
 import com.kbstar.frame.DAO;
 
-public class ItemDAO implements DAO<String, ItemDTO>{
+public class ItemDAO implements DAO<Integer, ItemDTO>{
 
-	HashMap<String, ItemDTO>  db =null;
+	HashMap<Integer, ItemDTO>  db =null;
 	
 	public ItemDAO() {
 		
-		db = new HashMap<String, ItemDTO>(); //이건 왜 있지?
+		db = new HashMap<Integer, ItemDTO>(); //이건 왜 있지?
 	}
 
 	@Override
 	public void insert(ItemDTO v) throws Exception {
-		if ( db.containsKey(String.valueOf(v.getId()))){
+		if ( db.containsKey(v.getId())){
 			throw new Exception();
 		}
-		db.put(String.valueOf(v.getId()) , v);
+		db.put(v.getId() , v);
 	}
 
 	@Override
 	public void update(ItemDTO v) throws Exception {
-		if ( !db.containsKey(String.valueOf(v.getId()))){
+		if ( !db.containsKey(v.getId())){
 			throw new Exception();
 		}	
-		db.put(String.valueOf(v.getId()), v);
+		db.put(v.getId(), v);
 	}
 
 	@Override
-	public void delete(String k) throws Exception {
+	public void delete(Integer k) throws Exception {
 		if ( !db.containsKey(k)){
 			throw new Exception();
 		}
@@ -42,7 +42,7 @@ public class ItemDAO implements DAO<String, ItemDTO>{
 	}
 
 	@Override
-	public ItemDTO select(String k) throws Exception {
+	public ItemDTO select(Integer k) throws Exception {
 		
 		if ( !db.containsKey(k)){
 			throw new Exception();
