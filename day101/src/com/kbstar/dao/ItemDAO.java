@@ -13,7 +13,6 @@ public class ItemDAO implements DAO<Integer, ItemDTO>{
 	HashMap<Integer, ItemDTO>  db =null;
 	
 	public ItemDAO() {
-		
 		db = new HashMap<Integer, ItemDTO>(); //이건 왜 있지?
 	}
 
