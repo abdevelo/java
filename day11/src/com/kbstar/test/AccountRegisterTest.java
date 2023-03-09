@@ -1,82 +1,68 @@
 package com.kbstar.test;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import com.kbstar.dto.AccountDTO;
 import com.kbstar.frame.CRUDService;
+import com.kbstar.frame.MakeAccountNumber;
 import com.kbstar.service.AccountService;
 
 public class AccountRegisterTest {
 
 	public static void main(String[] args) {
-
 		CRUDService<String, AccountDTO> service = new AccountService();
-		
 		AccountDTO obj = 
-		new AccountDTO("5342", 1000 ,"dongtan");
-		AccountDTO obj2 = 
-		new AccountDTO("6422", 2000 ,"hyangnam");
-		AccountDTO obj3 = 
-		new AccountDTO("3012", 3000 ,"chuncheon");
-	
+				new AccountDTO(MakeAccountNumber.makeAccNum(), 10000, "id01");			
 		
+		AccountDTO obj2 = 
+				new AccountDTO(MakeAccountNumber.makeAccNum(), 20000, "id01");			
+		
+		AccountDTO obj3 = 
+				new AccountDTO(MakeAccountNumber.makeAccNum(), 30000, "id02");			
+	
 		try {
 			service.register(obj);
 			service.register(obj2);
 			service.register(obj3);
-			System.out.println("...계좌 등록을 완료하였습니다.");
 		} catch (Exception e) {
-			System.out.println("계좌 개설에 실패하였습니다.");
+			System.out.println(e.getMessage());
 		}
-	
-		AccountDTO account = new AccountDTO();
+		
+		// get(k) test ------------------------------------
+		AccountDTO Account = null;
+		try {
+			Account = service.get("202339100");
+			System.out.println(Account);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		// get() test ------------------------------------
+		// Emp e = new Manager();
+		// List list = new ArrayList();
+		
+		List<AccountDTO> list = null;
 		
 		try {
-			System.out.println("...계좌를 불러오고 있습니다.");
-			account = service.get("5342");
-			System.out.println(account);
-		} catch (Exception e1) {
-			System.out.println("계좌 불러오기에 실패하였습니다.");
-		}
-		
-		
-		try {
-			service.remove("5342");
-			System.out.println("...계좌를 해지했습니다.");
+			list = service.get();
+			for(AccountDTO u: list) {
+				System.out.println(u);
+			}
 		} catch (Exception e) {
-			System.out.println("계좌 해지에 실패하였습니다");
+			e.printStackTrace();
 		}
 		
-	
+		// remove() test ------------------------------------
 		try {
-			obj = new AccountDTO("5342", 2000 ,"seoul");
-			service.modify(obj);			
-			System.out.println("정보 변경에 실패하였습니다");
+			service.remove("id05");
 		} catch (Exception e) {
-			System.out.println("정보 변경에 실패하였습니다");
+			System.out.println(e.getMessage());
 		}
-
-
-		
-		
-		
-		try {
-			System.out.println("...전체 계좌를 불러오고 있습니다.");
-			Collection<AccountDTO> all = service.get();
-			System.out.println(all);
-			
-		} catch (Exception e) {
-			System.out.println("전체 계좌 불러오기에 실패하였습니다");
-		}
-		
-		
-		
-
 		
 		
 	}
-	
 
 }
+
+
+
