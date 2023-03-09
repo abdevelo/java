@@ -33,6 +33,7 @@ public class AccountRegisterTest {
 		try {
 			Account = service.get("202339100");
 			System.out.println(Account);
+			System.out.println("계좌를 조회했습니다...");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -48,6 +49,7 @@ public class AccountRegisterTest {
 			for(AccountDTO u: list) {
 				System.out.println(u);
 			}
+			System.out.println("전체 계좌를 조회했습니다...");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

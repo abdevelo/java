@@ -46,6 +46,7 @@ public class TransactionRegisterTest {
 			for(TransactionDTO u: list) {
 				System.out.println(u);
 			}
+			System.out.println("전체 거래내역을 조회했습니다...");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
