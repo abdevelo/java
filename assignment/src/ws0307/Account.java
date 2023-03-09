@@ -79,6 +79,7 @@ public class Account {
 			throw new minusMoney("MM001");
 		};
 		
+		
 		if ( balance-money < 0 | balance == 0  ) {
 			throw new minusBalance("MB001");
 		}
