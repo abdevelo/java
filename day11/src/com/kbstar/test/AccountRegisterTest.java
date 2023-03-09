@@ -46,10 +46,22 @@ public class AccountRegisterTest {
 			service.remove("5342");
 			System.out.println("...계좌를 해지했습니다.");
 		} catch (Exception e) {
-			System.out.println("정보 변경에 실패하였습니다");
+			System.out.println("계좌 해지에 실패하였습니다");
 		}
 		
 	
+		try {
+			obj = new AccountDTO("5342", 2000 ,"seoul");
+			service.modify(obj);			
+			System.out.println("정보 변경에 실패하였습니다");
+		} catch (Exception e) {
+			System.out.println("정보 변경에 실패하였습니다");
+		}
+
+
+		
+		
+		
 		try {
 			System.out.println("...전체 계좌를 불러오고 있습니다.");
 			Collection<AccountDTO> all = service.get();
@@ -60,7 +72,7 @@ public class AccountRegisterTest {
 		}
 		
 		
-
+		
 
 		
 		
