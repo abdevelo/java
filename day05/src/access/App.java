@@ -6,7 +6,7 @@ public class App {
 
 		Employee e = new Employee();
 		e.name = "";
-		e.get
+//		e.get
 		
 	}
 

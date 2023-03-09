@@ -1,11 +1,11 @@
 package bank;
 
 import java.util.Calendar;
+import java.util.Random;
 
 public class MakeAccountNumber {
 	public String makeAccNum() {
 		String accNum = "";
-		Random r = r.nextIn();
 		
 		Calendar cal = Calendar.getInstance();
 		accNum = ""+cal.get(Calendar.YEAR)
