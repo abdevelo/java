@@ -15,9 +15,6 @@ public class AccountService implements CRUDService<String, AccountDTO> {
 	DAO<String, AccountDTO> accDao;
 	Notification notification;
 	
-	
-	
-	
 	public AccountService() {
 		
 		accDao = new AccountDAO();
