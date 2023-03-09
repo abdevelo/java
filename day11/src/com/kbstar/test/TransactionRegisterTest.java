@@ -51,9 +51,6 @@ public class TransactionRegisterTest {
 			e.printStackTrace();
 		}
 		
-		
-		
-		
 	}
 
 }
