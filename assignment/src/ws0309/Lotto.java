@@ -22,7 +22,7 @@ public class Lotto {
 		HashSet<Integer> winningNum  = new HashSet<Integer>();
 
 		while ( winningNum.size() < 3){
-			int rndnum = r.nextInt(5) + 1;
+			int rndnum = r.nextInt(25) + 1;
 			winningNum.add(rndnum);
 		}
 		this.winningNum = winningNum;
