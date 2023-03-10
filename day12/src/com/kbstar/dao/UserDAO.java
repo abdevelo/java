@@ -65,6 +65,12 @@ public class UserDAO implements DAO<String, UserDTO> {
 		}
 		return list;
 	}
+
+	
+	@Override
+	public List<UserDTO> search(Object obj) throws Exception {
+		return null;
+	}
 	
 
 }

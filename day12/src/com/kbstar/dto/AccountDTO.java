@@ -3,7 +3,7 @@ package com.kbstar.dto;
 public class AccountDTO {
 	private String accNo;
 	private double balance;
-	private String holder;
+	private String holder; // = id 
 	
 	public AccountDTO() {
 	}

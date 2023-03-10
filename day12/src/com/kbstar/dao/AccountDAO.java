@@ -51,6 +51,15 @@ public class AccountDAO implements DAO<String, AccountDTO> {
 		return list;
 	}
 
+	// 사용자의 계좌 조회
+	// 사용자의 : 사용자의 id;
+	// Object obj = new String ();
+	
+	@Override
+	public List<AccountDTO> search(Object obj) throws Exception {
+		return null;
+	}
+
 	
 	
 }

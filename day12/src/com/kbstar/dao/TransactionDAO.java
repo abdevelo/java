@@ -50,6 +50,15 @@ public class TransactionDAO implements DAO<String, TransactionDTO> {
 		}
 		return list;
 	}
+	
+	
+	// 고객이 보유하고 이는 계좌번호를 입력하면 
+	// 해당 계좌의 거래내역을 조회한다.
+	@Override
+	public List<TransactionDTO> search(Object obj) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	
 	
