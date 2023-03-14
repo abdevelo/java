@@ -87,7 +87,7 @@ public class CustDaoImpl implements DAO<String, String, Cust> {
 				rset.next();
 				String id = rset.getString("id");
 				String pwd = rset.getString("pwd");
-				String name = rset.getString("naem");
+				String name = rset.getString("name");
 				int age = rset.getInt("age");
 				cust = new Cust(id, pwd, name, age);
 			}catch(Exception e ) {
