@@ -1,6 +1,6 @@
 package com.kbstar.dto;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Cart {
 	private String id;
@@ -12,7 +12,7 @@ public class Cart {
 	
 	public Cart() {
 	}
-	
+
 	public Cart(String item_id, int cnt) {
 		this.item_id = item_id;
 		this.cnt = cnt;
@@ -22,6 +22,15 @@ public class Cart {
 		this.user_id = user_id;
 		this.item_id = item_id;
 		this.cnt = cnt;
+	}
+	
+	
+
+	public Cart(String user_id, String item_id, int cnt, Date regdate) {
+		this.user_id = user_id;
+		this.item_id = item_id;
+		this.cnt = cnt;
+		this.regdate = regdate;
 	}
 
 	public Cart(String id, String user_id, String item_id, int cnt, Date regdate) {

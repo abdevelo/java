@@ -7,6 +7,7 @@ import com.kbstar.dao.CartDaoImpl;
 import com.kbstar.dto.Cart;
 import com.kbstar.frame.CRUDService;
 import com.kbstar.frame.DAO;
+import com.kbstar.frame.MakeItemNumber;
 
 public class CartCRUDServiceImpl implements CRUDService<String, Cart> {
 
@@ -20,14 +21,16 @@ public class CartCRUDServiceImpl implements CRUDService<String, Cart> {
 	public void register(Cart v) throws Exception {
 
 		try {
+			String id = MakeItemNumber.makeCartNum();
+			v.setId(id);
 			dao.insert(v);
 		} catch (Exception e) {
 			if (e instanceof SQLIntegrityConstraintViolationException) { // 예외 오류 중 java.sql. 뒷 부분임
 				throw new Exception("카트 ID가 중복 되었습니다.");
 			} else
+				e.printStackTrace();
 				throw new Exception("시스템 장애 입니다..");
 		}
-
 	}
 
 	@Override

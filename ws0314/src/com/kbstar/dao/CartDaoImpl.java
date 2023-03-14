@@ -1,7 +1,7 @@
 package com.kbstar.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,8 +38,10 @@ public class CartDaoImpl implements DAO<String, String, Cart> {
 			pstmt.setString(2, v.getUser_id());
 			pstmt.setString(3, v.getItem_id());
 			pstmt.setInt(4, v.getCnt());
-			pstmt.setDate(5, v.getRegdate());
+			//pstmt.setDate(5, v.getRegdate());
+		
 			int result = pstmt.executeUpdate();
+			
 		}catch(SQLException e) {
 			throw e;
 		}
