@@ -1,18 +1,17 @@
 package com.kbstar.test;
 
 import com.kbstar.dto.Cust;
-import com.kbstar.dto.Item;
 import com.kbstar.frame.CRUDService;
-import com.kbstar.service.ItemCRUDServiceImpl;
+import com.kbstar.service.CustCRUDServiceImpl;
 
-public class CustUpdateTest {
+public class ItemUpdateTest {
 
 	public static void main(String[] args) throws Exception {
-		CRUDService<String, Item> crudService =
-				new ItemCRUDServiceImpl();
+		CRUDService<String, Cust> crudService =
+				new CustCRUDServiceImpl();
 	
 	
-		Item cust = new Item("id09", "pwd20", "tom", 30);
+		Cust cust = new Cust("id09", "pwd20", "tom", 30);
 		try {
 			crudService.modify(cust);
 			System.out.println("수정성공");
