@@ -12,31 +12,17 @@ public class Cart {
 	
 	public Cart() {
 	}
-
-
-	
-	
-	
-	
 	
 	public Cart(String item_id, int cnt) {
 		this.item_id = item_id;
 		this.cnt = cnt;
 	}
 
-
-
-
-
-
-
 	public Cart(String user_id, String item_id, int cnt) {
 		this.user_id = user_id;
 		this.item_id = item_id;
 		this.cnt = cnt;
 	}
-
-
 
 	public Cart(String id, String user_id, String item_id, int cnt, Date regdate) {
 		this.id = id;

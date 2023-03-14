@@ -21,7 +21,7 @@ public class Sql {
 	public static String cartInsertSql = "INSERT INTO item VALUES (?,?,?,?,SYSDATE)"; 
 	public static String cartSelectSql = "SELECT * FROM item WHERE id=?";
 	public static String cartSelectAllSql = "SELECT * FROM item"; 
-	public static String cartUpdateSql = "UPDATE item SET name=?,price=?,rate=? WHERE id=?;"; 
+	public static String cartUpdateSql = "UPDATE item SET User_id=?,item_id=?,cnt=? WHERE id=?;"; 
 
 	
 	
