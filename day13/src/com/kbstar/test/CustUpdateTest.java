@@ -12,7 +12,9 @@ public class CustUpdateTest {
 				new ItemCRUDServiceImpl();
 	
 	
-		Item cust = new Item("id09", "pwd20", "tom", 30);
+		Item cust = new Item("pwd20","tom", 30,"id09");
+		
+		
 		try {
 			crudService.modify(cust);
 			System.out.println("수정성공");

@@ -13,7 +13,6 @@ public class Item {
 	
 	public Item() {
 		
-		this();
 	}
 	
 	//ItemID와 rgdate를 정하는 것은 노출되지 않기 위해 이러한 생성자를 만듦 
@@ -22,10 +21,6 @@ public class Item {
 		this.price = price;
 		this.rate = rate;
 	}
-
-	
-	
-	
 
 	public Item(String id, String name, int price, double rate) {
 		this.id = id;
