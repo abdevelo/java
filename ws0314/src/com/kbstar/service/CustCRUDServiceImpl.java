@@ -95,7 +95,7 @@ public class CustCRUDServiceImpl implements CRUDService<String, Cust> {
 			if (e instanceof SQLRecoverableException) {
 				throw new Exception("시스템장애");
 			} else {
-				throw new Exception("ID가 존재하지 않습니다.");
+				throw new Exception("데이터가 존재하지 않습니다.");
 			}
 		}
 		return list;
