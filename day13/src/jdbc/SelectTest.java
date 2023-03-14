@@ -32,7 +32,7 @@ public class SelectTest {
 		
  		try ( Connection con = DriverManager.getConnection(url, id, pwd);
  				PreparedStatement pstmt = con.prepareStatement(selectSql);) {
-			 pstmt.setString(1, "id29");
+			 	pstmt.setString(1, "id29");
 			try(ResultSet rset = pstmt.executeQuery() ){ // rset -> [id, pwd,name,age] 
 				rset.next(); // 커서를 실제 데이터가 있는 다음 줄로 옮겼다. 
 				//String db_id = rset.getString(1); // 배열이 0번째부터 시작하는 것과 달리 이건 1번째부터 시작.

@@ -4,7 +4,9 @@ import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -12,9 +14,8 @@ import com.kbstar.dto.Cust;
 import com.kbstar.frame.DAO;
 import com.kbstar.frame.Sql;
 
-public class CustDaoImpl implements DAO<String,String,Cust> {
+public class CustDaoImpl implements DAO<String, String, Cust> {
 
-	
 	public CustDaoImpl() {
 		// Driver Loading from DeleteTest
 		try {
@@ -23,10 +24,10 @@ public class CustDaoImpl implements DAO<String,String,Cust> {
 			System.out.println("Driver가 없습니다.");
 			e.printStackTrace();
 			return;
-		} 
+		}
 		System.out.println("Driver Loading 성공.");
 	}
-	
+
 	public Connection getConnection() throws Exception {
 		Connection con = null;
 		// Properties 코드 : id,비밀번호 등의 내용이 직접적으로 코드에 보이지 않게 파일로 관리
@@ -42,38 +43,29 @@ public class CustDaoImpl implements DAO<String,String,Cust> {
 		con = DriverManager.getConnection(url, id, pwd);
 		return con;
 	}
-	
-	
-	
-	
+
 	@Override
 	public void insert(Cust v) throws Exception {
-		try ( Connection con = getConnection();
- 				PreparedStatement pstmt = con.prepareStatement(Sql.insertSql);) {
-			 pstmt.setString(1, v.getId());
-			 pstmt.setString(2, v.getPwd());
-			 pstmt.setString(3, v.getName());
-			 pstmt.setInt(4, v.getAge());
-			 int result = pstmt.executeUpdate();		 
+		try (Connection con = getConnection(); PreparedStatement pstmt = con.prepareStatement(Sql.insertSql);) {
+			pstmt.setString(1, v.getId());
+			pstmt.setString(2, v.getPwd());
+			pstmt.setString(3, v.getName());
+			pstmt.setInt(4, v.getAge());
+			int result = pstmt.executeUpdate();
 		} catch (SQLException e1) {
 			throw e1;
 //			e1.printStackTrace();a
-		}		
+		}
 	}
 
 	@Override
 	public void delete(String k) throws Exception {
-		
-		
-		try ( Connection con = getConnection();
- 				PreparedStatement pstmt = con.prepareStatement(Sql.deleteSql);) {
+		try (Connection con = getConnection(); PreparedStatement pstmt = con.prepareStatement(Sql.deleteSql);) {
 			pstmt.setString(1, k);
-			 int result = pstmt.executeUpdate();
-			 
-			 if (result == 0) {
-				 throw new Exception("ID 없음");
-			 }
-			 
+			int result = pstmt.executeUpdate();
+			if (result == 0) {
+				throw new Exception("ID 없음");
+			}
 		} catch (Exception e1) {
 			throw e1;
 		}
@@ -82,19 +74,17 @@ public class CustDaoImpl implements DAO<String,String,Cust> {
 
 	@Override
 	public void update(Cust v) throws Exception {
-		try ( Connection con = getConnection();
- 				PreparedStatement pstmt = con.prepareStatement(Sql.updateSql);) {
-			
-			 pstmt.setString(1, v.getPwd());
-			 pstmt.setString(2, v.getName());
-			 pstmt.setInt(3, v.getAge());
-			 pstmt.setString(4, v.getId());
-			 
-			 int result = pstmt.executeUpdate();	
-			 if( result == 0 ) {
-				 throw new Exception("없음");
-			 }
-			 
+		try (Connection con = getConnection(); PreparedStatement pstmt = con.prepareStatement(Sql.updateSql);) {
+
+			pstmt.setString(1, v.getPwd());
+			pstmt.setString(2, v.getName());
+			pstmt.setInt(3, v.getAge());
+			pstmt.setString(4, v.getId());
+
+			int result = pstmt.executeUpdate();
+			if (result == 0) {
+				throw new Exception("없음");
+			}
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
@@ -102,26 +92,55 @@ public class CustDaoImpl implements DAO<String,String,Cust> {
 
 	@Override
 	public Cust select(String k) throws Exception {
-
-		Cust cust = new Cust();
-		
-		
-		
-		return null;
+		Cust cust = null;
+		try (Connection con = getConnection();
+			PreparedStatement pstmt = con.prepareStatement(Sql.selectSql)){
+				pstmt.setString(1, k);
+				
+			try ( ResultSet rset = pstmt.executeQuery()){
+				rset.next();
+				String id = rset.getString("id");
+				String pwd = rset.getString("pwd");
+				String name = rset.getString("naem");
+				int age = rset.getInt("age");
+				cust = new Cust(id, pwd, name, age);
+			}catch(Exception e ) {
+				throw e;
+			}
+		}catch (Exception e){
+			throw e;
+		}
+		return cust;
 	}
 
 	@Override
 	public List<Cust> selectAll() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		List<Cust> list = new ArrayList<Cust>();
+		try (Connection con= getConnection(); PreparedStatement pstmt = con.prepareStatement(Sql.selectAllSql)){
+			try(ResultSet rset = pstmt.executeQuery();){
+				while ( rset.next()) {
+					Cust cust = null;
+					String id = rset.getString("id");
+					String pwd = rset.getString("pwd");
+					String name = rset.getString("naem");
+					int age = rset.getInt("age");
+					cust = new Cust(id, pwd, name, age);
+					list.add(cust);
+				}
+			}catch(Exception e) {
+				
+			}
+		}catch (Exception e) {
+			
+		}
+		
+		return list;
 	}
 
 	@Override
 	public List<Cust> search(String k) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
-	} //id,serach에쓸값,dto는cust로
-	
+	} // id,serach에쓸값,dto는cust로
 
-	
 }
