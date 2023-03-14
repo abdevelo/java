@@ -9,5 +9,7 @@ public interface CRUDService<K,V> {
 	public void modify(V v) throws Exception;
 	public void remove(K k) throws Exception;
 	public V get(K k) throws Exception;
-	public List<Cust> get() throws Exception;
+	public List<V> get() throws Exception;
+	
+	
 }

@@ -11,11 +11,10 @@ public class CustUpdateTest {
 				new CustCRUDServiceImpl();
 	
 	
-//		Cust cust = new Cust("id09", "pwd20", "tom", 30);
+		Cust cust = new Cust("id09", "pwd20", "tom", 30);
 		try {
-//			crudService.register(cust);
-			crudService.remove("idid");
-//			System.out.println("성공");
+			crudService.modify(cust);
+			System.out.println("수정성공");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

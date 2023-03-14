@@ -1,6 +1,6 @@
 package com.kbstar.dao;
 
-import java.io.FileInputStream;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -28,21 +28,7 @@ public class CustDaoImpl implements DAO<String, String, Cust> {
 		System.out.println("Driver Loading 성공.");
 	}
 
-	public Connection getConnection() throws Exception {
-		Connection con = null;
-		// Properties 코드 : id,비밀번호 등의 내용이 직접적으로 코드에 보이지 않게 파일로 관리
-		Properties props = new Properties();
-		String fileName = "db_info.txt";
-		FileInputStream in = new FileInputStream(fileName);
-		props.load(in);
-		/*****************************************/
 
-		String id = props.getProperty("DB_ID");
-		String pwd = props.getProperty("DB_PWD");
-		String url = props.getProperty("DB_URL");
-		con = DriverManager.getConnection(url, id, pwd);
-		return con;
-	}
 
 	@Override
 	public void insert(Cust v) throws Exception {
@@ -122,18 +108,17 @@ public class CustDaoImpl implements DAO<String, String, Cust> {
 					Cust cust = null;
 					String id = rset.getString("id");
 					String pwd = rset.getString("pwd");
-					String name = rset.getString("naem");
+					String name = rset.getString("name");
 					int age = rset.getInt("age");
 					cust = new Cust(id, pwd, name, age);
 					list.add(cust);
 				}
 			}catch(Exception e) {
-				
+				throw e;
 			}
 		}catch (Exception e) {
-			
+			throw e;
 		}
-		
 		return list;
 	}
 
