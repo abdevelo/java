@@ -13,7 +13,7 @@ public class CartSelectTest {
       
       Cart obj = null;
          try {
-            obj = service.get("2023314796100");
+            obj = service.get("2023314634100");
             System.out.println(obj);
          } catch (Exception e) {
             System.out.println(e.getMessage());

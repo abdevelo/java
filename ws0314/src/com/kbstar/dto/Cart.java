@@ -33,6 +33,17 @@ public class Cart {
 		this.regdate = regdate;
 	}
 
+	
+	
+	
+	
+	public Cart(String id, String user_id, String item_id, int cnt) {
+		this.id = id;
+		this.user_id = user_id;
+		this.item_id = item_id;
+		this.cnt = cnt;
+	}
+
 	public Cart(String id, String user_id, String item_id, int cnt, Date regdate) {
 		this.id = id;
 		this.user_id = user_id;
