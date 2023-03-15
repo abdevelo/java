@@ -16,12 +16,6 @@
 
 # 💡 초기기획 & ERD
 
-## ERD
-
-<img width="1400" alt="스크린샷 2022-03-25 오후 5 02 20" src="https://user-images.githubusercontent.com/46917538/68458221-9429fc80-0245-11ea-9cc3-92f7a35fd534.png"></a>
-
-<br><br>
-
 ## flow
 
 <img width="924" alt="스크린샷 2022-03-27 오전 12 41 14" src="https://user-images.githubusercontent.com/60570733/160246837-e87b4a41-f758-4d53-a715-345eb299babd.png">
