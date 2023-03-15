@@ -3,9 +3,9 @@
 이번 프로젝트는 Oracle DB를 활용해, 고객,계좌,개별 이체 건에 대한 CRUD서비스와  register(회원가입),login(로그인),makeAcocunt(계좌개설),transaction(계좌이체) 서비스를 포함하였습니다.
 <br><br>
 
-### 🚀 프로젝트 구조
-.........이미지 수정해주세요..........
-<img width="1674" alt="스크린샷 2022-03-25 오후 4 55 35" src="https://user-images.githubusercontent.com/60570733/160078345-f4f8cd46-c001-4f92-891c-38c0dbb4c404.png" >
+### 🚀 UML 구조
+
+<img width="1674" alt="스크린샷 2022-03-25 오후 4 55 35" src="https://github.com/abdevelo/java/blob/assignment/final_ws0315/UML.jpg" >
 
 
 ### 🚀 개발 인원 및 기간
